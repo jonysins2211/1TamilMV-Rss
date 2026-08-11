@@ -6,9 +6,9 @@ from dotenv import load_dotenv
 load_dotenv()  # Load from .env file
 
 # Telegram
-API_ID = int(os.getenv("API_ID", ""))
-API_HASH = os.getenv("API_HASH", "")
-USER_SESSION = os.getenv("USER_SESSION", "") # Use Pyrogram V2 String Session 
+API_ID = int(os.getenv("API_ID", "API_ID"))
+API_HASH = os.getenv("API_HASH", "API_HASH")
+USER_SESSION = os.getenv("USER_SESSION", "USER_SESSION") # Use Pyrogram V2 String Session 
 #if you don't have string Gen bot - use it my bot @SMD_StringBot
 
 # Web
