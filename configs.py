@@ -1,15 +1,22 @@
 # Coded by @SMDxTG - if Any Query Ask him Directly 
 
 import os
+import sys
 from dotenv import load_dotenv
 
 load_dotenv()  # Load from .env file
 
+from session_utils import load_session_string, SessionStringError
+
 # Telegram
 API_ID = int(os.getenv("API_ID"))
 API_HASH = os.getenv("API_HASH")
-USER_SESSION = os.getenv("USER_SESSION") # Use Pyrogram V2 String Session 
-#if you don't have string Gen bot - use it my bot @SMD_StringBot
+# Use Pyrogram V2 String Session - if you don't have string Gen bot - use @SMD_StringBot
+try:
+    USER_SESSION = load_session_string(os.getenv("USER_SESSION"), API_ID)
+except SessionStringError as exc:
+    print(f"❌ {exc}", file=sys.stderr)
+    raise SystemExit(1) from None
 
 # Web
 PORT = int(os.getenv("PORT", "8080")) 
