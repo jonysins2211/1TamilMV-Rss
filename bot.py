@@ -52,6 +52,6 @@ async def start_bot():
 
 if __name__ == "__main__":
     try:
-        asyncio.get_event_loop().run_until_complete(start_bot())
+        asyncio.run(start_bot())
     except KeyboardInterrupt:
         print("🛑 Bot stopped manually.")
